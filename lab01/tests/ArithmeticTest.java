@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import static com.google.common.truth.Truth.assertThat;
+import static com.google.common.truth.Truth.assertThat;g
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ArithmeticTest {
