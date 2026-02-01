@@ -168,7 +168,7 @@ public class Model {
             if (board.tile(x, targetY + 1) == null) {
                 targetY++;
 
-            } else if (board.tile(x, targetY + 1).value() == myValue) {
+            } else if (board.tile(x, targetY + 1).value() == myValue && !board.tile(x,targetY+1).wasMerged()) {
                 targetY++;
                 merge = true;
                 break;
@@ -177,9 +177,7 @@ public class Model {
             }
         }
         board.move(x, targetY, currTile);
-        if (merge) {
-            board.tile(x, targetY).wasMerged();
-        }
+        if (merge) score += myValue * 2;
     }
     /** Handles the movements of the tilt in column x of the board
      * by moving every tile in the column as far up as possible.
