@@ -176,7 +176,7 @@ public class Model {
                 break;
             }
         }
-        board.move(x, targetY, currTile);
+        if(targetY != y) board.move(x, targetY, currTile);
         if (merge) score += myValue * 2;
     }
     /** Handles the movements of the tilt in column x of the board
