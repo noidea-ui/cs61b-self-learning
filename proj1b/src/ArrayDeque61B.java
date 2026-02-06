@@ -1,7 +1,4 @@
-package deque;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.lang.Math;
 
@@ -23,11 +20,11 @@ public class ArrayDeque61B<T> implements Deque61B<T> {
 
     public void resize(){
         T[] array = (T[]) new Object [capacity*2];
-        System.arraycopy(items,0,array,0, last);
-        System.arraycopy(items,front,array,front+capacity,capacity-front);
-        front = front+capacity;
-        capacity*=2;
-        items = array;
+         System.arraycopy(items,0,array,0, last);
+         System.arraycopy(items,front,array,front+capacity,capacity-front);
+         front = front+capacity;
+         capacity*=2;
+         items = array;
     }
 
 
@@ -54,12 +51,12 @@ public class ArrayDeque61B<T> implements Deque61B<T> {
 
     @Override
     public List<T> toList() {
-        int cur = front;
-        List<T> returnList = new ArrayList<>();
-        for(int i=0;i<size;i++){
-            returnList.add(items[Math.floorMod(front+i,capacity)]);
-        }
-        return returnList;
+       int cur = front;
+       List<T> returnList = new ArrayList<>();
+       for(int i=0;i<size;i++){
+           returnList.add(items[Math.floorMod(front+i,capacity)]);
+       }
+       return returnList;
     }
 
     @Override
@@ -109,63 +106,7 @@ public class ArrayDeque61B<T> implements Deque61B<T> {
 
     @Override
     public T getRecursive(int index) {
-        return get(index);
-    }
-
-    @Override
-    public Iterator<T> iterator(){
-        return new ArrayDequeIterator();
-    }
-
-    private class ArrayDequeIterator implements Iterator<T>{
-        public int current;
-
-        public ArrayDequeIterator(){
-            current = front;
-        }
-
-
-        @Override
-        public boolean hasNext() {
-            return current != last;
-        }
-
-        @Override
-        public T next(){
-            T item = items[current];
-            current = Math.floorMod(current + 1 , capacity);
-            return item;
-        }
-    }
-
-    @Override
-    public boolean equals(Object other){
-        if(this == other){
-            return true;
-        }
-        if(other instanceof ArrayDeque61B otherDeque){
-            if(otherDeque.size != this.size){
-                return false;
-            }
-
-            int current = front;
-            int o = otherDeque.front;
-            while(current != last){
-                if(items[current] != otherDeque.items[o]){
-                    return false;
-                }
-                current = Math.floorMod(current+1,capacity);
-                o = Math.floorMod(o+1,capacity);
-            }
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public String toString(){
-        return toList().toString();
-
+return get(index);
     }
 
 }

@@ -14,7 +14,7 @@ public interface Deque61B<T> {
     void addFirst(T x);
 
     /**
-     * Add {@code x} to the back of the deque. Assumes {@code x} is never null.
+     * Add {@code x} to the last of the deque. Assumes {@code x} is never null.
      *
      * @param x item to add
      */
@@ -35,7 +35,7 @@ public interface Deque61B<T> {
     boolean isEmpty();
 
     /**
-     * Returns the size of the deque. Does not alter the deque.
+     * Returns the capacity of the deque. Does not alter the deque.
      *
      * @return the number of items in the deque.
      */
@@ -49,7 +49,7 @@ public interface Deque61B<T> {
     T removeFirst();
 
     /**
-     * Remove and return the element at the back of the deque, if it exists.
+     * Remove and return the element at the last of the deque, if it exists.
      *
      * @return removed element, otherwise {@code null}.
      */
